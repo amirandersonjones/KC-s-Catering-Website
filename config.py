@@ -1,6 +1,7 @@
 #set up and organize the applicationns general config, secret variables, 
 # database infor, api keys, file structure,etc
 import os
+from re import S
 
 
 #base directory of the application-help the computer figure out the 
@@ -17,3 +18,6 @@ class Config:
 FLASK_APP = os.environ.get('FLASK_APP')   #TELL THE APP WHAT ITS NAMED
 FLASK_ENV = os.environ.get('FLASK_ENV')  #IS THIS APP UNDER DEVELOPMENT, PUBLIC ETC. WILL SKIP SOME SECURITY STEPS IF STILL UNDER DEVELOPMENT AND WILL ACTIVATE MORE DEBUGGER INFO
 SECRET_KEY = os.environ.get('SECRET_KEY') #passes the secret key to make sure that it is not being accessed by malicious activities.STORED IN .ENV FILE
+
+SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -15,3 +15,11 @@ app.config.from_object(Config)
 
 #telling the app the routes.py file is relevant or contains info
 from . import routes #from the app folder that we are currently in import the routes
+
+#imports for database stuff
+from . models import db
+from flask_migrate import Migrate
+#setup our ORM and Migrate connections
+db.init_app(app)
+migrate = Migrate(app, db)
+from .import models #tell flask about the existence of any models import from the app folder

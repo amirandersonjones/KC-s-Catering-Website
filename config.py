@@ -15,9 +15,10 @@ class Config:
     """set configuration variables for our entire flask app
     """
 #need 3 things variables have to have these names
-FLASK_APP = os.environ.get('FLASK_APP')   #TELL THE APP WHAT ITS NAMED
-FLASK_ENV = os.environ.get('FLASK_ENV')  #IS THIS APP UNDER DEVELOPMENT, PUBLIC ETC. WILL SKIP SOME SECURITY STEPS IF STILL UNDER DEVELOPMENT AND WILL ACTIVATE MORE DEBUGGER INFO
-SECRET_KEY = os.environ.get('SECRET_KEY') #passes the secret key to make sure that it is not being accessed by malicious activities.STORED IN .ENV FILE
+    FLASK_APP = os.environ.get('FLASK_APP')   #TELL THE APP WHAT ITS NAMED
+    FLASK_ENV = os.environ.get('FLASK_ENV')  #IS THIS APP UNDER DEVELOPMENT, PUBLIC ETC. WILL SKIP SOME SECURITY STEPS IF STILL UNDER DEVELOPMENT AND WILL ACTIVATE MORE DEBUGGER INFO
+    SECRET_KEY = os.environ.get('SECRET_KEY') #passes the secret key to make sure that it is not being accessed by malicious activities.STORED IN .ENV FILE
 
-SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+

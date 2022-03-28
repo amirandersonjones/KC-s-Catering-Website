@@ -19,7 +19,18 @@ from . import routes #from the app folder that we are currently in import the ro
 #imports for database stuff
 from . models import db
 from flask_migrate import Migrate
-#setup our ORM and Migrate connections
+
+# set up our ORM and Migrate connections
 db.init_app(app)
 migrate = Migrate(app, db)
-from .import models #tell flask about the existence of any models import from the app folder
+
+#tell flask about the existence of any models import from the app folder
+from . import routes
+from .import models 
+
+#blueprint imports
+from .auth.routes import auth
+from .api.routes import api
+#create link of communication between blueprints and app
+app.register_blueprint(auth)
+app.register_blueprint(api)

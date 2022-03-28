@@ -78,8 +78,6 @@ class Products(db.Model):
     product_cost = db.Column(db.Float(2), nullable=False)
     order_date_created = db.Column(db.DateTime, default=datetime.now(timezone.utc))
     
-    
-
     def __init__(self, name, description, price, product_cost):
         self.name = name
         self.description = description

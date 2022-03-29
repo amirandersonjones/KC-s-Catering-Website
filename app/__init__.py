@@ -22,6 +22,9 @@ from flask_migrate import Migrate
 
 #set up login manager
 login.init_app(app)
+login.login_view = 'auth.signin'
+login.login_message = 'Please sign in to see this page.'
+login.login_message_category = 'danger'
 
 # set up our ORM and Migrate connections
 db.init_app(app)

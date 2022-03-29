@@ -42,7 +42,11 @@
       <a href="#gallery" class="navbar__link" id="gallery-page">GALLERY</a>
     </li>
     <li class="navbar__btn">
+      {% if current_user.is_authenticated %}
+      <a href="{{ url_for ('auth.signout') }}" class="button" id="sign-in-page">SignOut</a>
+      {% else %}
       <a href="{{ url_for ('auth.signin') }}" class="button" id="sign-in-page">SignIn</a>
+      {% endif %}
     </li>
     <li class="navbar__btn">
       <a href="{{ url_for ('auth.register') }}" class="button" id="sign-up-page">SignUp</a>

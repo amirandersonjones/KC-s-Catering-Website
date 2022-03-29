@@ -52,6 +52,12 @@ class Customer(db.Model, UserMixin):
         self.first_name = first_name.title()
         self.last_name = last_name.title()
         self.id = str(uuid4())
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(255))
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.String, db.ForeignKey('customer.id'))#links to the customer model and they must register as a customer to use the blogs
   
 
 

@@ -30,6 +30,12 @@ login.login_message_category = 'danger'
 db.init_app(app)
 migrate = Migrate(app, db)
 
+#import cors stuff
+from flask_cors import CORS
+
+#CORS setup
+CORS(app, origins=['*'])
+
 #tell flask about the existence of any models import from the app folder
 from . import routes
 from . import models 

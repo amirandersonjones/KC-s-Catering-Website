@@ -20,5 +20,5 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') #passes the secret key to make sure that it is not being accessed by malicious activities.STORED IN .ENV FILE
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-   postgresql://ftrbfntk:o2UO5uPzDnhv7BXumJX8MjK7TiF3E6WE@salt.db.elephantsql.com/ftrbfntk = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 

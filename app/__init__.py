@@ -37,6 +37,9 @@ from . import models
 #blueprint imports
 from .auth.routes import auth
 from .api.routes import api
+from .blog.routes import blog
+
 #create link of communication between blueprints and app
 app.register_blueprint(auth)
 app.register_blueprint(api)
+app.register_blueprint(blog)

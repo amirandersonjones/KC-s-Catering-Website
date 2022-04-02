@@ -16,4 +16,6 @@ def home():
 def photos():
     return render_template('photos.html')
 
-@app.route('')
+@app.route('/kcscartingmenu')
+def menu():
+    return render_template('menu.html')

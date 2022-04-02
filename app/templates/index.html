@@ -33,22 +33,22 @@
       <div class="menu__card">
         <h2> Menu 1 </h2>
         <p> Taco Bar </p>
-        <div class="menu__btn"><button>CLICK FOR MENU</button></div>
+        <div class="menu__btn"><button><a href="{{ url_for ('menu') }}">CLICK FOR MENU</a></button></div>
       </div>
       <div class="menu__card">
         <h2> Menu 2 </h2>
         <p> Summer BBQ Slam </p>
-        <div class="menu__btn"><button>CLICK FOR MENU</button></div>
+        <div class="menu__btn"><button><a href="{{ url_for ('menu') }}">CLICK FOR MENU</a></button></div>
       </div>
       <div class="menu__card">
         <h2>Buy It Buy The Pan</h2>
         <p>meal description here</p>
-        <div class="menu__btn"><button>CLICK FOR MENU</button></div>
+        <div class="menu__btn"><button><a href="{{ url_for ('menu') }}">CLICK FOR MENU</a></button></div>
       </div>
       <div class="menu__card">
         <h2>Additional Services</h2>
         <p>Meal Prep Services</p>
-        <div class="menu__btn"><button>CLICK FOR MENU</button></div>
+        <div class="menu__btn"><button><a href="{{ url_for ('menu') }}">CLICK FOR MENU</a></button></div>
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@
         <h2>Our Favorite Drink Pairings For Any Event</h2>
         <p>See what makes us different</p>
         <p>Hire a bartender for your next event!</p>
-        <button class="main__btn"><a href="{{ url_for ('auth.register') }}">Sign Up</a></button>
+        <button class="main__btn"><a href="{{ url_for ('auth.register') }}">Inquire Within</a></button>
       </div>
       <div class="main__img--container justify-content-center"> 
         <p style="color:#dd2476"; font><i> "DRINK OF THE MONTH: 155 BELMONT" </i></p> 

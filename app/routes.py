@@ -19,3 +19,7 @@ def photos():
 @app.route('/kcscartingmenu')
 def menu():
     return render_template('menu.html')
+
+@app.route('/kcscateringinfo')
+def info():
+    return render_template('info.html')

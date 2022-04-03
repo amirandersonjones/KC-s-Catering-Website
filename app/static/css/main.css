@@ -713,3 +713,13 @@
       width: 100%;
     }
   }
+
+  .card_images{
+    max-width: 150px;
+    max-height: 200px;
+    position: relative;
+    left: 30%;
+    border-radius: 5px;
+    border-color: #000000;
+  
+  }

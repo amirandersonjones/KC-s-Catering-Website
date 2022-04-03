@@ -207,6 +207,9 @@
     height: 90%;
     text-align: center;
     padding: 30px;
+    border-color:crimson;
+    border-top-style: ridge;
+
   }
   
   .hero__heading {
@@ -285,6 +288,7 @@
     width: 100%;
     max-width: 1300px;
     padding: 0 50px;
+    
   }
   
   .main__content {
@@ -496,14 +500,17 @@
   
   .menu__wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     grid-template-rows: 1fr;
+    border-color:#1fa2ff;
+    border-bottom-style: ridge;
+    border-top-style: ridge;
   }
   
   .menu__card {
     margin: 10px;
     height: 425px;
-    width: 300px;
+    width: 400px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -583,7 +590,7 @@
   
   @media screen and (max-width: 768px) {
     .services__wrapper {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr ;
     }
   }
   
@@ -595,6 +602,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-color: crimson;
+    border-bottom-style: ridge;
+    border-top-style: ridge;
   }
   
   #footer__logo {

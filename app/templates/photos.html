@@ -1,103 +1,42 @@
 
-{% block css %}
-<link rel="stylesheet" href="../static/css/photos.css">
-{% endblock css%} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KC's Catering</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/css/photos.css">
+  <link rel="stylesheet" href="../static/css/images/">
+</head>
 
-{% block content %}
+<body>
+<button class="main__btn, button"><a href="{{ url_for ('home') }}">HOME</a></button>
+<h1>GALLERY</h1>
+    <!--Image Gallery-->
 
-
-
-
-<input type = "radio" name="photos" id="check1" checked>
-<input type = "radio" name="photos" id="check2">
-<input type = "radio" name="photos" id="check3">
-<input type = "radio" name="photos" id="check4">
-
-<div class=" container">
-    <h1> KCS CATERING PHOTO GALLERY</h1>
-    <div class="top-content">
-        <h3>PHOTO GALLERY</h3>
-        <label for="check1">All Photos|</label>
-        <label for="check2">Kitchen|</label>
-        <label for="check3">Event|</label>
-        <label for="check4">This is Us</label>
-        <label for=""></label>
-    </div>
-    <div class="photo-gallery">
-        <div class="pic event">
-            <img src ="https://i.ibb.co/9cxn2G7/IMG-4505.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/1qj67BL/IMG-3020002.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="https://i.ibb.co/XWmJhwd/IMG957694.jpg">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/H2LWCpP/IMG-1501.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/JHwh5dx/IMG-3021002.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="https://i.ibb.co/XWmJhwd/IMG957694.jpg">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/k8Sp4dX/IMG-1489-Copy-Copy-Copy.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/6gRTf5W/IMG-4110.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="https://i.ibb.co/XWmJhwd/IMG957694.jpg">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/bbf1skT/20150328.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/VV863F4/IMG-2909.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="https://i.ibb.co/XWmJhwd/IMG957694.jpg">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/BsX6sVY/2015032895.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/y6ntD3d/IMG-9968.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="https://i.ibb.co/v304Nhq/IMG953468.jpg">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/BnLsd8t/20210729-011234.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/kxkNRj9/53-FEEC33.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/RDGtbym/20210729-011224.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/Fb6XB0J/IMG-7550001.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="">
-        </div>
-        <div class="pic event">
-            <img src ="https://i.ibb.co/QFvhfqg/20210729-011040.jpg">
-        </div>
-        <div class="pic kitchen">
-            <img src ="https://i.ibb.co/162Y2mV/2487-B0-D6.jpg">
-        </div>
-        <div class="pic family">
-            <img src ="https://i.ibb.co/JCcjjJp/20210601-173357.jpg">
-        </div>
-    </div>
-
-
+<div class="slider">
+    <h3 style="white">Our Photos</h3>
+   <span style="--i:1;"><img src="static/css/images/img1.jpg" alt=""></span>
+   <span style="--i:2;"><img src="static/css/images/img2.jpg" alt=""></span>
+   <span style="--i:3;"><img src="static/css/images/img3.jpg" alt=""></span>
+   <span style="--i:4;"><img src="static/css/images/img4.jpg" alt=""></span>
+   <span style="--i:5;"><img src="static/css/images/img5.jpg" alt=""></span>
+   <span style="--i:6;"><img src="static/css/images/img6.jpg" alt=""></span>
+   <span style="--i:7;"><img src="static/css/images/img7.jpg" alt=""></span>
+   <span style="--i:8;"><img src="static/css/images/img8.jpg" alt=""></span>
+   <span style="--i:9;"><img src="static/css/images/img9.jpg" alt=""></span>
+   <span style="--i:10;"><img src="static/css/images/img10.jpg" alt=""></span>
+   <span style="--i:11;"><img src="static/css/images/img11.jpg" alt=""></span>
+   <span style="--i:12;"><img src="static/css/images/img12.jpg" alt=""></span>
+   <span style="--i:13;"><img src="static/css/images/img13.jpg" alt=""></span>
+   <span style="--i:14;"><img src="static/css/images/img14.jpg" alt=""></span>
+   <span style="--i:15;"><img src="static/css/images/img15.jpg" alt=""></span>
 </div>
-{% endblock content %} 
+
+
+</body>
+</html>
+

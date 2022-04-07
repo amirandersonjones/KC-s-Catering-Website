@@ -60,7 +60,7 @@
   </div>
 
   <!--Social Section -->
-  <div class="main" id="sign-up">
+  <div class="main" id="social">
     <div class="main__container">
       <div class="main__content">
         <h1>Let's Get Social<br>Contact: (773)490-2666</br></h1>
@@ -83,13 +83,13 @@
 
 
    <!--Blog Section -->
-   <div class="services" id="services">
+   <div class="services" id="blog">
     <h1> BLOG WITH US </h1>
     <div class="menu__wrapper">
       <div class="menu__card">
-        <h2> TO START BLOGGING </h2>
-        <p> INSTRUCTIONS: </p>
-        <div class="menu__btn"><button>CLICK FOR MENU</button></div>
+        <h2> <u>TO START BLOGGING </u></h2>
+        <p><i>INSTRUCTIONS</i>: All users must first register to the website. Next, sign in from the homepage. A button will appear at the top of your screen next to the signout and signup buttons. The button will contain your username. Click to start blogging!</p>
+        <div class="menu__btn"><button><a href="{{ url_for ('auth.register') }}">Register Here!</a></button></div>
       </div>
       <div class="menu__card">
         <h2> PHOTO 2 </h2>

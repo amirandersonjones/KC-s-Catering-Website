@@ -20,6 +20,6 @@ def photos():
 def menu():
     return render_template('menu.html')
 
-@app.route('/kcscateringinfo')
+@app.route('/kcscateringinfo', methods=['GET','POST'])
 def info():
     return render_template('info.html')

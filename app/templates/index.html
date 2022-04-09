@@ -30,7 +30,7 @@
  
   <!-- MENU Section -->
   <div class="services" id="services">
-    <h1> Menu Offerings </h1>
+    <h1> Menu Offerings: </h1>
     <div class="menu__wrapper">
       <div class="menu__card">
         <h2> Menu 1 </h2>
@@ -84,25 +84,25 @@
 
    <!--Blog Section -->
    <div class="services" id="blog">
-    <h1> BLOG WITH US </h1>
+    <h1> EXPLORE MORE: </h1>
     <div class="menu__wrapper">
       <div class="menu__card">
-        <h2> <u>TO START BLOGGING </u></h2>
+        <h2>START BLOGGING</h2>
         <p><i>INSTRUCTIONS</i>: All users must first register to the website. Next, sign in from the homepage. A button will appear at the top of your screen next to the signout and signup buttons. The button will contain your username. Click to start blogging!</p>
         <div class="menu__btn"><button><a href="{{ url_for ('auth.register') }}">Register Here!</a></button></div>
       </div>
       <div class="menu__card">
-        <h2> PHOTO 2 </h2>
-        <p> PHOTO DESCRIPTION </p>
+        <h2> <i class="fa fa-mail-reply-all" aria-hidden="true"></i> EVENTS </h2>
+        <p>  </p>
+        <div class="menu__btn"><button><a href="{{ url_for ('events') }}">CLICK FOR EVENTS PAGE</a></button></div>
+      </div>
+      <div class="menu__card">
+        <h2></h2>
+        <p>BUY OUR BRAND</p>
         <div class="menu__btn"><button>CLICK FOR MENU</button></div>
       </div>
       <div class="menu__card">
-        <h2>PHOTO 3</h2>
-        <p>PHOTO DESCRIPTION</p>
-        <div class="menu__btn"><button>CLICK FOR MENU</button></div>
-      </div>
-      <div class="menu__card">
-        <h2>PHOTO 4</h2>
+        <h2>OUR STORY</h2>
         <p>PHOTO DESCRIPTION</p>
         <div class="menu__btn"><button>CLICK FOR MENU</button></div>
       </div>
@@ -114,22 +114,13 @@
     <div class="footer__links">
       <div class="footer__link--wrapper">
         <div class="footer__link--items">
-          <h2>About Us</h2>
-          <a href="/sign__up">How it works</a> <a href="/">Testimonials</a>
-          <a href="/">Careers</a> <a href="/">Terms of Service</a>
-        </div>
-        <div class="footer__link--items">
           <h2>Contact Us</h2>
-          <a href="/">Contact</a> <a href="/">Support</a>
+          <a href="https://form.123formbuilder.com/6136274/form">Contact</a> <a href="https://form.123formbuilder.com/6136274/form">Support</a>
           <a href="/">Destinations</a>
         </div>
       </div>
       <div class="footer__link--wrapper">
-        <div class="footer__link--items">
-          <h2>Videos</h2>
-          <a href="/">Submit Video</a> <a href="/">Ambassadors</a>
-          <a href="/">Agency</a>
-        </div>
+       
         <div class="footer__link--items">
           <h2>Social Media</h2>
           <a href="/">Instagram</a> <a href="/">Facebook</a>
@@ -163,4 +154,5 @@
       </div>
     </section>
   </div>
+  <script src="main.js"></script>
 {% endblock content %} 

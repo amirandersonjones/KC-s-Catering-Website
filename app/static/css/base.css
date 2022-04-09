@@ -1,0 +1,135 @@
+:root{
+    --darkgray: #212329;
+    --lightgray: #b1b1b1;
+    --brightred: #F9423D;
+    --white: #fff;
+    --lightred: #f9433dcc;
+    --lightblue: #337AF1;
+}
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background: #ff8177; */
+    background:linear-gradient(to right,
+    #ff6a00,
+    #ee0979); 
+    overflow:hidden;
+}
+
+
+   
+
+.slider{
+    position: relative;
+    width: 250px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate{
+    0%{
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100%{
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+
+.slider span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(400px);
+}
+
+.slider span img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.slider span:hover img{
+    transform:translateY(-50px) scale(1.5);
+}
+
+
+
+h3{
+    color: linear-gradient(to right, #2c5364,#131313);
+}
+
+h1{
+    position: absolute;
+    top:0%;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+}
+h1{
+    color: linear-gradient(to right, #2c5364,#131313);
+}
+
+  .button{
+    position: absolute;
+    top:0%;
+    left:0%;
+    text-decoration: none;
+    padding: 10px 20px;
+    border:#131313 ;
+    outline: none;
+    border-radius: 4px;
+    background: #ff8177;
+    transition: all 0.3s ease;
+     
+ }
+ 
+ .button a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .button:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff1ead;
+    transition: all 0.35s;
+    border-radius: 10px;
+  }
+  
+  .button:hover {
+    color: #fff;
+  }
+  
+  .button:hover:after {
+    width: 100%;
+  }
+
+
+  

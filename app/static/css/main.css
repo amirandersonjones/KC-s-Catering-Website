@@ -723,3 +723,29 @@
     border-color: #000000;
   
   }
+
+  
+  
+  
+  @media screen and (max-width: 600px) {
+    .menu__card {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 820px) {
+    .menu__card {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 865px) {
+    .menu__card {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .menu__card {
+      width: 100%;
+    }
+  }

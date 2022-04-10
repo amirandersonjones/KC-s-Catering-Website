@@ -757,7 +757,12 @@
   
   
 .card_images{
-  
+  left: 40%;
+  top: 10%;
+ 
+
+   margin-left: -50px;
+   margin-top:  -50px;
   position: relative;
 }
  

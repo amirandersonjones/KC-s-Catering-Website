@@ -766,4 +766,20 @@
   position: relative;
 }
  
- 
+ .instructions{
+  background-color: #ff8177;
+  background-image: linear-gradient(to right, #ff0844 0%, #f7673c 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  margin-bottom: 5rem;
+  width: 800px;
+  font-size: 1.5rem;
+ }
+
+ #heart{
+    color: #44107a;
+    size: 100px;
+ }

@@ -726,7 +726,7 @@
 
   
   
-  
+  /*my custom media screen for menu cards*/
   @media screen and (max-width: 600px) {
     .menu__card {
       width: 100%;
@@ -749,3 +749,16 @@
       width: 100%;
     }
   }
+
+  
+  
+  
+  
+  
+  
+.card_images{
+  
+  position: relative;
+}
+ 
+ 

@@ -91,11 +91,27 @@ body{
   font-size: 1em;
 
 }
+}
 
 
+@keyframes vibrate {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-1deg); }
+  20% { transform: rotate(1deg); }
+  30% { transform: rotate(0deg); }
+  40% { transform: rotate(1deg); }
+  50% { transform: rotate(-1deg); }
+  60% { transform: rotate(0deg); }
+  70% { transform: rotate(-1deg); }
+  80% { transform: rotate(1deg); }
+  90% { transform: rotate(0deg); }
+  100% { transform: rotate(-1deg); }
+}
 
+.dream img:hover {
+  /* Start the vibrate animation with duration 0.5 seconds */
+  animation: vibrate 0.5s;
 
-
-
-
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
 }

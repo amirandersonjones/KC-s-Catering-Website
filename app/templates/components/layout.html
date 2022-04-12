@@ -9,10 +9,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../static/css/main.css">
   <!-- need to link js sources -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   {% block css %}
   {% endblock css%}
 </head>
+
 <body>
+  <script src="{{url_for('static', filename='main.js')}}"></script>
   <!--Navbar Section-->
 <nav class="navbar">
 <div class="navbar_container">

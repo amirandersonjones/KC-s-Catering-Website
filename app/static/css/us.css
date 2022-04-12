@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the body */
+  body {
+    font-family: 'Kumbh Sans', sans-serif;
+    margin: 0;
+  }
+
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #ff8177;
+    color: black;
+  }
+ 
+  /* Increase the font size of the heading */
+.header h1 {
+    font-size: 40px;
+  }
+  
+
+  /* Column container */
+.row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+  }
+
+  /* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color:#ff8177;
+    padding: 20px;
+    border-top: #aaa;
+    border-style:outset;
+  }
+
+  /* Main column */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: #ffb199;
+    padding: 20px;
+    border-top: #aaa;
+    border-style: inset;
+  }
+
+  /* Fake image, just for this example */
+.kellieimg {
+    background-color:#ff8177;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pageimgs {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }

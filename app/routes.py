@@ -23,3 +23,7 @@ def menu():
 @app.route('/kcscateringinfo')
 def events():
     return render_template('events.html')
+
+@app.route('/kcscateringus')
+def us():
+    return render_template('us.html')

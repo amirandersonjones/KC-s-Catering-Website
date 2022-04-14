@@ -1,20 +1,57 @@
-{% extends 'components/layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/css/users.css">
+  <!-- Load an icon library for navigation bar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home" id="navbar__logo">KC'S CATERING</a>
+        <a class="active" href="{{ url_for ('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="#blog"><i class="fa fa-fw fa-user"></i> Blog</a>
+        <a href="{{ url_for ('blog.newsfeed') }}"><i class="fa fa-fw fa-newspaper-o"></i> NewsFeed</a>
+        <a href="{{ url_for ('blog.users') }}"><i class="fa fa-fw fa-user"></i> BlogUsers</a>
+    
+        <ul class="navbar__menu">
+        <li class="navbar__btn">
+          {% if current_user.is_authenticated %}
+          <a href="{{ url_for('blog.userProfile', username=current_user.username)}}" class="button" id="sign-in-page">{{ current_user.username }}</a>
+          <a href="{{ url_for ('auth.signout') }}" class="button" id="sign-in-page">SignOut</a>
+          {% else %}
+          <a href="{{ url_for ('auth.signin') }}" class="button" id="sign-in-page">SignIn</a>
+          {% endif %}
+        </li>
+        <li class="navbar__btn">
+          <a href="{{ url_for ('auth.register') }}" class="button" id="sign-up-page">SignUp</a>
+        </li>
+        </ul>
+    
+      </div>
+
 
 {% block content %}
-<!-- S1: User doesn't exist -->
-{% if not user %}
+<!-- S1: Customer doesn't exist -->
+{% if not customer %}
     <div class="row justify-content-center">
         <div class="col-6">
             <h3>404: Whoops! This page doesn't exist.</h3>
         </div>
     </div>
 {% else %}
-    <!-- S2: Not signed in - other users page --> <!-- S3: Signed in - other users page -->
+    <!-- S2: Not signed in - other customers page --> <!-- S3: Signed in - other customers page -->
     <!-- only separation of S2 and S3 is perhaps the behaviour of the follow button (that can be done in routing) -->
     <!-- show the posts -->
     <div class="row">
         <div class="col-8">
-            {% if user.id == current_user.id %}
+            {% if customer.id == current_user.id %}
+            <!--form to create posts-->
             <form class="form-inline" method="POST">
                 {{ form.hidden_tag() }}
                 <div class='form-group'>
@@ -22,7 +59,7 @@
                         {{ form.new_post(class='form-control', placeholder='Post something...') }}
                     </fieldset>
                     <br>
-                    {{ form.submit(class='btn btn-info') }}
+                    {{ form.submit(class='btn btn-info, hsbutton') }}
                 </div>
             </form>
             <hr>
@@ -31,8 +68,8 @@
                 {% for post in posts %}
                 <div class="card mb-3">
                     <div class="card-header">
-                        <h5 class="m-0" >@{{user.username}}
-                        {% if user.id == current_user.id %}
+                        <h5 class="m-0" >@{{customer.username}}
+                        {% if customer.id == current_user.id %}
                         <a class="btn btn-sm btn-danger float-right" href="{{ url_for('blog.deletePost', pid=post.id) }}">Delete</a>
                         {% endif %}
                         </h5>
@@ -46,33 +83,35 @@
                 </div>
                 {% endfor %}
             {% else %}
-            <h3>{{ user.username }} has no posts.</h3>
+            <h3>{{ customer.username }} has no posts.</h3>
             {% endif %}
         </div>
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@{{ user.username }}</h5>
-                    <p class="card-text">User bio will go here</p>
+                    <h5 class="card-title">@{{ customer.username }}</h5>
+                    <p class="card-text">User bio section</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ user.first_name }} {{ user.last_name }}</li>
-                    <li class="list-group-item">Member since: <span class="float-right">{{ user.date_created }}</span></li>
+                    <li class="list-group-item">{{ customer.first_name }} {{ customer.last_name }}</li>
+                    <li class="list-group-item">Member since: <span class="float-right">{{ customer.date_created }}</span></li>
                 </ul>
                 {% if not current_user.is_authenticated %}
-                <a href="{{ url_for('auth.signin') }}" class="btn btn-block btn-info">Sign in to follow</a>
-                {% elif user.id != current_user.id%}
+                <a href="{{ url_for('auth.signin') }}" style="width:150px"class="btn btn-block btn-info, hsbutton">Sign in to follow</a>
+                {% elif customer.id != current_user.id%}
                 <div class="card-body">
-                    {% if user in current_user.followed %}
-                    <a href="{{ url_for('blog.unfollow', uid=user.id) }}" class="btn btn-block btn-info">Unfollow</a>
+                    {% if customer in current_user.followed %}
+                    <a href="{{ url_for('blog.unfollow', uid=customer.id) }}" class="btn btn-block btn-info, hsbutton">Unfollow</a>
                     {% else %}
-                    <a href="{{ url_for('blog.follow', uid=user.id) }}" class="btn btn-block btn-info">Follow</a>
+                    <a href="{{ url_for('blog.follow', uid=customer.id) }}" class="btn btn-block btn-info, hsbutton">Follow</a>
                     {% endif %}
                 </div>
                 {% endif %}
             </div>
         </div>
     </div>
-    <div class="btn btn block btn-info"><a href="{{ url_for('home') }}">HOME</a></div>
+
 {% endif %}
 {% endblock content %} 
+</body>
+</html>

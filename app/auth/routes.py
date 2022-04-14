@@ -25,8 +25,7 @@ def signin():
             customer = Customer.query.filter_by(username=siform.username.data).first()
              #if it does, check if the password matches
              #this function returns true if these two match and false if they dont
-            if customer and customer.password == siform.password.data:
-                # check_password_hash(customer.password, siform.password.data)
+            if customer and check_password_hash(customer.password, siform.password.data):
                 login_user(customer)
                 print(current_user, current_user.__dict__)
                 #successful sign-in:redirect user to homepage-THIS COULD CHANGE DEPENDING ON HOW I SET UP KELLIE'S PAGE

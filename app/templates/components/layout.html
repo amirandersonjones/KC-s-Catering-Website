@@ -8,6 +8,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../static/css/main.css">
+  <!-- Load an icon library for navigation bar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- need to link js sources -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -18,30 +20,17 @@
 <body>
   <script src="{{url_for('static', filename='main.js')}}"></script>
   <!--Navbar Section-->
-<nav class="navbar">
-<div class="navbar_container">
-  <a href="#home" id="navbar__logo">KC'S CATERING</a>
-  <div class="navbar__toggle" id="mobile-menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </div>
-  <ul class="navbar__menu">
-    <li class="navbar__item">
-      <a href="#home" class="navbar__link" id="home-page">HOME</a>
-    </li>
-    <li class="navbar__item">
-      <a href="#about" class="navbar__link" id="about-page">ABOUT</a>
-    </li>
-    <li class="navbar__item">
-      <a href="#menu" class="navbar__link" id="menu-page">MENU</a>
-    </li>
-    <li class="navbar__item">
-      <a href="#social" class="navbar__link" id="social-page">SOCIAL</a> 
-    </li>
-    <li class="navbar__item">
-      <a href="#blog" class="navbar__link" id="blog-page">BLOG</a>
-    </li>
+  <div class="navbar">
+    <a href="#home" id="navbar__logo">KC'S CATERING</a>
+    <a class="active" href="{{ url_for ('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#about"><i class="fa fa-fw fa-info"></i> About</a>
+    <a href="#services"><i class="fa fa-fw fa-bars"></i> Menu </a>
+    <a href="#social"><i class="fa fa-fw fa-group"></i> Social</a>
+    <a href="#blog"><i class="fa fa-fw fa-user"></i> Blog</a>
+    <a href="{{ url_for ('blog.newsfeed') }}"><i class="fa fa-fw fa-newspaper-o"></i> NewsFeed</a>
+    <a href="{{ url_for ('blog.users') }}"><i class="fa fa-fw fa-user"></i> FindBlogUsers</a>
+
+    <ul class="navbar__menu">
     <li class="navbar__btn">
       {% if current_user.is_authenticated %}
       <a href="{{ url_for('blog.userProfile', username=current_user.username)}}" class="button" id="sign-in-page">{{ current_user.username }}</a>
@@ -53,9 +42,10 @@
     <li class="navbar__btn">
       <a href="{{ url_for ('auth.register') }}" class="button" id="sign-up-page">SignUp</a>
     </li>
-  </ul>
-</div>
-</nav>
+    </ul>
+
+  </div>
+
 <div class="row justify-content-center">
   {% with messages = get_flashed_messages(with_categories=True) %}
             {% if messages %}
@@ -70,10 +60,10 @@
             {% endif %}
             {% endwith %}
           </div> 
- 
+    
   {% block content %}
   {% endblock content %} 
   </body>
 
-</body>
+
 </html>

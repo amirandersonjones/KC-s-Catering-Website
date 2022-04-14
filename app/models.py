@@ -10,8 +10,8 @@ from flask_login import LoginManager, UserMixin
 login = LoginManager()
 #neccessary function for our login manager
 @login.user_loader
-def load_user(user_id):
-    return Customer.query.get(user_id)
+def load_user(customer):
+    return Customer.query.get(customer)
 
 
 #initial blueprint setup
@@ -32,6 +32,15 @@ from secrets import token_hex
 
 #IN THE FUTURE NEED TO LOOK AT ADDING FOREIGN KEYS TO LINK THESE CHARTS.BUT FOR NOW THIS PERSON ONLY WANTS TO 
 #THE CUSTOMERS TABLE SO THIS IS SOMETHING I WILL WORK ON IN THE FUTURE.
+
+#standalone table that is used for user follow relationship not its own seperate entity/object
+followers = db.Table(
+    'followers',
+    db.Column('follower_id', db.String, db.ForeignKey('customer.id')),
+    db.Column('customer_id', db.String, db.ForeignKey('customer.id'))
+)
+#blog models stuff:
+
 class Customer(db.Model, UserMixin):
     id = db.Column(db.String(50), primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
@@ -41,7 +50,16 @@ class Customer(db.Model, UserMixin):
     password = db.Column(db.String(250), nullable=False)
     first_name =db.Column(db.String(100))
     last_name = db.Column(db.String(100))
+    bio = db.Column(db.String(255), default='There is currently no bio info available.')
     date = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    posts=db.relationship('Post', backref='author')
+    followed = db.relationship(
+        'Customer',
+        secondary=followers,
+        primaryjoin=(followers.c.follower_id==id),#the join we'll need to find all of the users this user is following
+        secondaryjoin=(followers.c.customer_id==id),#the join that we'll need to find all of the users who follow this user
+        backref=db.backref('followers')
+    )
 
     def __init__(self, username, phone, email, address, password, first_name='', last_name=''):
         self.username = username
@@ -53,12 +71,30 @@ class Customer(db.Model, UserMixin):
         self.last_name = last_name.title()
         self.id = str(uuid4())
 
+    def follow(self, u):
+        """expects a user object, follows that user"""
+        self.followed.append(u)
+        db.session.commit()
+
+    def unfollow(self, u):
+        """expects a user object and unfollows that user"""
+        self.followed.remove(u)
+        db.session.commit()
+
+    def followed_posts(self):
+        """this function runs our database query to get all posts followed by this user including their own posts"""
+        #get all posts by people we follow
+        f_posts = Post.query.join(followers, followers.c.customer_id == Post.customer_id).filter(followers.c.follower_id == self.id)
+        #get my own posts
+        own = Post.query.filter_by(customer_id=self.id)
+        return f_posts.union(own).order_by(Post.timestamp.desc())
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(255))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    user_id = db.Column(db.String, db.ForeignKey('customer.id'))#links to the customer model and they must register as a customer to use the blogs
-  
+    customer_id = db.Column(db.String, db.ForeignKey('customer.id'))#links to the customer model and they must register as a customer to use the blogs
+    
+    
 
 
 class Inventory(db.Model):
@@ -93,5 +129,3 @@ class Products(db.Model):
         
         
          
-
-

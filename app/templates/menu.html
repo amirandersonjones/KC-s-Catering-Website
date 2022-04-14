@@ -10,11 +10,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../static/css/menu.css">
+<!-- Load an icon library for navigation bar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="btn">
-    <a href="{{url_for('home')}}">Home</a>
+  <div class="navbar">
+    <a href="#home" id="navbar__logo">KC'S CATERING</a>
+    <a class="active" href="{{ url_for ('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#blog"><i class="fa fa-fw fa-user"></i> Blog</a>
+    <a href="{{ url_for ('blog.newsfeed') }}"><i class="fa fa-fw fa-newspaper-o"></i> NewsFeed</a>
+    <a href="{{ url_for ('blog.users') }}"><i class="fa fa-fw fa-user"></i> BlogUsers</a>
+    
   </div>
+
+
+
+
   <div class="container">
     <div class="menu">
       <h2 class="menu-group-heading">

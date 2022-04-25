@@ -79,11 +79,46 @@
   }
 
   
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     .navbar a {
       float: none;
       display: block;
     }
+  }
+/*======= MEIDA QUERIES (MEDIUM DEVICES/MOBILE PHONE) ====== */
+
+@media screen and (max-width: 800px){
+  ul{
+    gap: 4rem;
+}
+}
+
+
+
+/*======= MEIDA QUERIES (SMALL DEVICES/TABLETS) ====== */
+
+@media screen and (max-width: 600px) {
+  nav{
+    padding: 0rem;
+}
+nav .container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 0rem;
+}
+nav input, label{
+    display: none;
+}
+
+ul{
+    display: inline;
+    display: flex;
+    gap: 2rem;
+}
+
+nav .container ul li{
+    background: transparent;
+}
   }
 
   /* .button {

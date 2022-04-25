@@ -215,6 +215,7 @@ body{
     flex-shrink: 0;
     object-fit: cover;
     margin-right: 1.5em;
+    
   }
   
   .menu-item-text {
